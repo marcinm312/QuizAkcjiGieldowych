@@ -8,40 +8,44 @@ import java.util.Scanner;
 public class Quiz {
 	public static void main(String[] args) {
 
-		ArrayList<String> daneAkcji = new ArrayList<String>();
-		odczytDanych(daneAkcji);
+		while (true) {
 
-		String tempLine = null;
-		String[] tempWektorStr = null;
+			ArrayList<String> daneAkcji = new ArrayList<String>();
+			odczytDanych(daneAkcji);
 
-		ArrayList<Akcja> listaAkcji = new ArrayList<Akcja>();
-		for (int i = 0; i < daneAkcji.size(); i++) {
-			tempLine = daneAkcji.get(i);
-			tempWektorStr = tempLine.split(":");
-			Akcja tempAkcja = new Akcja(tempWektorStr[0], tempWektorStr[1], tempWektorStr[2],
-					Double.parseDouble(tempWektorStr[3]));
+			String tempLine = null;
+			String[] tempWektorStr = null;
 
-			listaAkcji.add(i, tempAkcja);
-		}
+			ArrayList<Akcja> listaAkcji = new ArrayList<Akcja>();
+			for (int i = 0; i < daneAkcji.size(); i++) {
+				tempLine = daneAkcji.get(i);
+				tempWektorStr = tempLine.split(":");
+				Akcja tempAkcja = new Akcja(tempWektorStr[0], tempWektorStr[1], tempWektorStr[2],
+						Double.parseDouble(tempWektorStr[3]));
 
-		int punktacja = 0;
-		int sumaPunktów = 0;
-		for (int x = 0; x < listaAkcji.size(); x++) {
-			System.out.println("\nPodaj gie³dowy skrót spó³ki " + listaAkcji.get(x).getNazwaAkcji() + " (ostatni kurs "
-					+ listaAkcji.get(x).getKursAkcji() + "):");
-			Scanner scan = new Scanner(System.in);
-			String wartoscUsera = scan.nextLine();
-
-			if (wartoscUsera.equals(listaAkcji.get(x).getSkrotAkcji())) {
-				punktacja = 3;
-				System.out.println("Poprawna odpowiedŸ, jesteœ mistrzem i dostajesz 3 punkty :)");
-			} else {
-				punktacja = -2;
-				System.out.println("Niestety pope³ni³eœ b³¹d. Przykro mi, ale muszê ci zabraæ 2 punkty :(");
+				listaAkcji.add(i, tempAkcja);
 			}
-			sumaPunktów = sumaPunktów + punktacja;
+
+			int punktacja = 0;
+			int sumaPunktow = 0;
+			for (int x = 0; x < listaAkcji.size(); x++) {
+				System.out.println("\nPodaj gie³dowy skrót spó³ki " + listaAkcji.get(x).getNazwaAkcji()
+						+ " (ostatni kurs " + listaAkcji.get(x).getKursAkcji() + "):");
+				Scanner scan = new Scanner(System.in);
+				String wartoscUsera = scan.nextLine();
+
+				if (wartoscUsera.equals(listaAkcji.get(x).getSkrotAkcji())) {
+					punktacja = 3;
+					System.out.println("Poprawna odpowiedŸ, jesteœ mistrzem i dostajesz 3 punkty :)");
+				} else {
+					punktacja = -2;
+					System.out.println("Niestety pope³ni³eœ b³¹d. Przykro mi, ale muszê ci zabraæ 2 punkty :(");
+				}
+				sumaPunktow = sumaPunktow + punktacja;
+				System.out.println("Aktualna punktacja: " + sumaPunktow + " pkt.");
+			}
+			System.out.println("\nKONIEC. Zdobyto " + sumaPunktow + " pkt.");
 		}
-		System.out.println("\nKONIEC. Zdobyto " + sumaPunktów + " pkt.");
 	}
 
 	public static void odczytDanych(ArrayList<String> lista) {
