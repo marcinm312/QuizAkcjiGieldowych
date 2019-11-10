@@ -2,6 +2,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -32,7 +34,7 @@ public class Quiz {
 				System.out.println("\nPodaj gie³dowy skrót spó³ki " + listaAkcji.get(x).getNazwaAkcji()
 						+ " (ostatni kurs " + listaAkcji.get(x).getKursAkcji() + "):");
 				Scanner scan = new Scanner(System.in);
-				String wartoscUsera = scan.nextLine();
+				String wartoscUsera = scan.nextLine().toUpperCase();
 
 				if (wartoscUsera.equals(listaAkcji.get(x).getSkrotAkcji())) {
 					punktacja = 3;
@@ -49,8 +51,12 @@ public class Quiz {
 	}
 
 	public static void odczytDanych(ArrayList<String> lista) {
+		Path currentRelativePath = Paths.get("");
+		String s = currentRelativePath.toAbsolutePath().toString();
+		System.out.println("Current relative path is: " + s);
+
 		try {
-			FileReader fr = new FileReader("akcje.txt");
+			FileReader fr = new FileReader(/*"AkcjeQuiz/" +*/ "resources/akcje.txt");
 			BufferedReader bfr = new BufferedReader(fr);
 			String odczytanaLinia = null;
 			int idxListyDanych = 0;
