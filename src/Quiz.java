@@ -31,17 +31,17 @@ public class Quiz {
 			int punktacja = 0;
 			int sumaPunktow = 0;
 			for (int x = 0; x < listaAkcji.size(); x++) {
-				System.out.println("\nPodaj gie³dowy skrót spó³ki " + listaAkcji.get(x).getNazwaAkcji()
+				System.out.println("\nPodaj gieÅ‚dowy skrÃ³t spÃ³Å‚ki " + listaAkcji.get(x).getNazwaAkcji()
 						+ " (ostatni kurs " + listaAkcji.get(x).getKursAkcji() + "):");
 				Scanner scan = new Scanner(System.in);
 				String wartoscUsera = scan.nextLine().toUpperCase();
 
 				if (wartoscUsera.equals(listaAkcji.get(x).getSkrotAkcji())) {
 					punktacja = 3;
-					System.out.println("Poprawna odpowiedŸ, jesteœ mistrzem i dostajesz 3 punkty :)");
+					System.out.println("Poprawna odpowiedÅº, jesteÅ› mistrzem i dostajesz 3 punkty :)");
 				} else {
 					punktacja = -2;
-					System.out.println("Niestety pope³ni³eœ b³¹d. Przykro mi, ale muszê ci zabraæ 2 punkty :(");
+					System.out.println("Niestety popeÅ‚niÅ‚eÅ› bÅ‚Ä…d. Przykro mi, ale muszÄ™ ci zabraÄ‡ 2 punkty :(");
 				}
 				sumaPunktow = sumaPunktow + punktacja;
 				System.out.println("Aktualna punktacja: " + sumaPunktow + " pkt.");
@@ -68,7 +68,7 @@ public class Quiz {
 			System.out.println("Nie znaleziono pliku");
 			e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println("Pojawi³ sie b³¹d wejscia wyjœcia");
+			System.out.println("PojawiÅ‚ sie bÅ‚Ä…d wejscia wyjÅ›cia");
 			e.printStackTrace();
 		}
 	}
