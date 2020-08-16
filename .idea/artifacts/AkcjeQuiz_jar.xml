@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="AkcjeQuiz:jar">
-    <output-path>$PROJECT_DIR$/jar_exe</output-path>
-    <root id="archive" name="AkcjeQuiz.jar">
-      <element id="module-output" name="AkcjeQuiz" />
-    </root>
-  </artifact>
-</component>
